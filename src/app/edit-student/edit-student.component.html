@@ -1,0 +1,26 @@
+<div class = container *ngIf="student">
+  <form (ngSubmit)="save()">
+    <div class = "form-group">
+      <label for="first_name">First Name:</label>
+      <input id="first_name" [(ngModel)]="student.first_name" name="first_name" required>
+    </div>
+    <div class = "form-group">
+      <label for="last_name">Last Name:</label>
+      <input id="last_name" [(ngModel)]="student.last_name" name="last_name" required>
+    </div>
+    <div class = "form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="student.email" name="email" placeholder="name@example.com" required>
+    </div>
+    <div class = "form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" class="form-control" [(ngModel)]="student.gender" name="gender" required>
+        <option selected>Choose...</option>
+        <option value = "Male">Male</option>
+        <option value = "Female">Female</option>
+      </select>
+    </div>
+    <button type="button" (click)="save()">Save</button>
+    <button type="button" (click)="goBack()">Back</button>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+ul {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa; /* Light background for each item */
+  border: 1px solid #ccc; /* Adds a border */
+  padding: 10px; /* Padding inside each list item */
+  margin-bottom: 10px; /* Space between list items */
+}
+
+button.btn-danger {
+  margin-left: auto;
+}

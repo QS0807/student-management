@@ -1,0 +1,12 @@
+<div *ngIf="students.length; else noStudentTemplate">
+  <ul>
+    <li *ngFor="let student of students">
+      ID: {{student.id}} - {{ student.first_name }} {{ student.last_name }} - {{ student.email }} - {{ student.gender }}
+      <a [routerLink]="['/students/edit', student.id]" (click)="editStudent(student.id)">Edit</a>
+      <button type="button" class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+<ng-template #noStudentTemplate>
+  <p>No students found.</p>
+</ng-template>

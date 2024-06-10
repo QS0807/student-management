@@ -1,0 +1,17 @@
+.form-group {
+  margin-bottom: 15px; /* Adds space between each form group */
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+button.btn {
+  margin-top: 10px; /* Space above the button */
+}
+.container {
+  border: 1px solid #ea37e1;
+
+}

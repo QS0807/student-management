@@ -1,0 +1,8 @@
+#sticky-sidebar {
+  position: fixed;
+  top: 20px;  /* Adjust the top margin */
+  right: 0;   /* Stick to the right edge */
+  height: 100vh;  /* Full viewport height */
+  width: 300px;  /* Fixed width, adjust as needed */
+  overflow-y: auto;  /* Enables scrolling within the sidebar if content is long */
+}
