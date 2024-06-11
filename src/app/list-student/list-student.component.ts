@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Student} from "../student";
 import {StudentService} from "../student.service";
-import {Subscription, switchMap} from "rxjs";
 import {EditingService} from "../editing.service";
 
 @Component({
@@ -11,24 +10,25 @@ import {EditingService} from "../editing.service";
 })
 export class ListStudentComponent implements OnInit, OnDestroy {
   students: Student[] = [];
-  private subscription!: Subscription;
+
   constructor(private studentService: StudentService,
               private editingService: EditingService) { }
 
   ngOnInit(): void {
-    this.subscription = this.studentService.refreshNeeded
-      .pipe(
-        switchMap(() => this.studentService.getAllStudents())
-      )
-      .subscribe({
-        next: (data) => {
-          this.students = data;
-        },
-        error: (error) => {
-          console.error('Error fetching students', error);
+    this.studentService.refreshNeeded.subscribe({
+      next: needed => {
+        if (needed) {
+          this.studentService.getAllStudents().subscribe({
+            next: students => this.students = students,
+            error: error => console.error('Error fetching students', error)
+          });
         }
-      });
+      },
+      error: error => console.error('Error in refreshNeeded subscription', error)
+    });
   }
+
+
   editStudent(id: number) {
     this.editingService.toggleEditing(true);
   }

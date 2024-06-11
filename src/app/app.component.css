@@ -6,3 +6,21 @@
   width: 300px;  /* Fixed width, adjust as needed */
   overflow-y: auto;  /* Enables scrolling within the sidebar if content is long */
 }
+.carousel-item {
+  height: 300px;
+  background-color: #ddd;
+}
+.carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+#sticky-sidebar {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
